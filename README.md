@@ -53,7 +53,7 @@ extension log goes to the app hilog type and is not visible).
 
 writes `DIR/oniro-screencast.tar.gz`: the script plus a prebuilt
 `screencast_agent.so`. A `screencast_agent.so` next to the script is used
-as-is, so the unpacked bundle needs only bash and `hdc` — no NDK. Bundles are
+as-is, so the unpacked bundle needs only bash and `hdc` — no NDK.
 
 ## License
 
