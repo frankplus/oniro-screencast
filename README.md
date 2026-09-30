@@ -26,10 +26,12 @@ its port to this machine.
 ## Requirements
 
 * bash, and `hdc` on `PATH` with the phone connected (`hdc list targets`)
-* to build the agent: the OpenHarmony SDK native toolchain — found
-  automatically under `~/setup-ohos-sdk/linux/*/native` or
+* that's all: a prebuilt aarch64 `screencast_agent.so` is committed next to
+  the script and used as-is. Only to rebuild the agent (see below) you also
+  need the OpenHarmony SDK native toolchain — found automatically under
+  `~/setup-ohos-sdk/linux/*/native` or
   `~/command-line-tools/sdk/default/openharmony/native`, or set
-  `OHOS_NDK=<sdk>/native`. Not needed with a prebuilt (see below).
+  `OHOS_NDK=<sdk>/native`.
 
 ## Usage
 
@@ -46,6 +48,15 @@ its port to this machine.
 
 The agent logs to `/data/local/tmp/screencast.log` on the device (uitest's own
 extension log goes to the app hilog type and is not visible).
+
+## Rebuilding the agent
+
+The committed `screencast_agent.so` wins over `src/` whenever it is present.
+After editing the source, rebuild it (`--pack` always builds from `src/`, into
+`~/.cache/oniro-screencast/`) and refresh the committed copy:
+
+    ./screencast.sh --pack /tmp/sc
+    cp ~/.cache/oniro-screencast/screencast_agent.so .
 
 ## Prebuilt bundle
 
